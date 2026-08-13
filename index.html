@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Special Question ❤️</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #ff9a9e,
+                #fad0c4
+            );
+
+            overflow: hidden;
+
+            transition: background 1s;
+        }
+
+
+        /* MAIN QUESTION BOX */
+
+        .container {
+
+            width: 90%;
+
+            max-width: 550px;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 25px;
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.2);
+
+            z-index: 10;
+        }
+
+
+        h1 {
+
+            color: #e91e63;
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+
+        h2 {
+
+            color: #444;
+
+            margin-top: 25px;
+        }
+
+
+        p {
+
+            color: #555;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+
+        /* HEART ANIMATION */
+
+        .heart {
+
+            font-size: 70px;
+
+            animation: heartbeat 1.2s infinite;
+        }
+
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        /* YES BUTTON AREA */
+
+        .yes-area {
+
+            margin-top: 30px;
+        }
+
+
+        button {
+
+            border: none;
+
+            padding: 15px 30px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+        }
+
+
+        /* YES BUTTON NEVER MOVES */
+
+        #yesBtn {
+
+            background: #e91e63;
+
+            color: white;
+
+            transition: 0.2s;
+        }
+
+
+        #yesBtn:hover {
+
+            background: #c2185b;
+
+            transform: scale(1.1);
+        }
+
+
+        /* NO BUTTON */
+
+        #noBtn {
+
+            position: fixed;
+
+            background: #555;
+
+            color: white;
+
+            left: calc(50% + 80px);
+
+            top: 62%;
+
+            z-index: 20;
+
+            transition:
+                left 0.12s ease,
+                top 0.12s ease,
+                transform 0.12s ease;
+        }
+
+
+        /* HIDDEN CLASS */
+
+        .hidden {
+
+            display: none;
+        }
+
+
+        /* SUCCESS SCREEN */
+
+        #success {
+
+            animation: appear 1s ease;
+
+            z-index: 50;
+        }
+
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.5);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(1);
+            }
+        }
+
+
+        /* FLOWERS */
+
+        .flowers {
+
+            font-size: 55px;
+
+            margin: 15px 0;
+        }
+
+
+        .love-message {
+
+            color: #e91e63;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+
+        .small {
+
+            font-size: 16px;
+
+            color: #777;
+        }
+
+
+        /* FALLING HEARTS AND FLOWERS */
+
+        .falling {
+
+            position: fixed;
+
+            top: -50px;
+
+            font-size: 30px;
+
+            animation:
+                fall linear forwards;
+
+            z-index: 40;
+
+            pointer-events: none;
+        }
+
+
+        @keyframes fall {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* CONFETTI */
+
+        .confetti {
+
+            position: fixed;
+
+            width: 10px;
+
+            height: 20px;
+
+            top: -20px;
+
+            z-index: 60;
+
+            animation:
+                confettiFall linear forwards;
+
+            pointer-events: none;
+        }
+
+
+        @keyframes confettiFall {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                padding: 30px 20px;
+            }
+
+            h1 {
+
+                font-size: 28px;
+            }
+
+            h2 {
+
+                font-size: 21px;
+            }
+
+            p {
+
+                font-size: 16px;
+            }
+
+            .heart {
+
+                font-size: 55px;
+            }
+
+            #noBtn {
+
+                left: 60%;
+
+                top: 65%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================= -->
+    <!-- QUESTION SECTION -->
+    <!-- ========================= -->
+
+    <div class="container" id="question">
+
+
+        <div class="heart">
+
+            ❤️
+
+        </div>
+
+
+        <h1>
+
+            I Have a Question for You...
+
+        </h1>
+
+
+        <p>
+
+            You are someone very special to me,
+            and I really enjoy having you in my life. ❤️
+
+        </p>
+
+
+        <p>
+
+            So I have something important
+            to ask you...
+
+        </p>
+
+
+        <h2>
+
+            Will you be my girlfriend? 💕
+
+        </h2>
+
+
+        <!-- YES BUTTON -->
+
+        <div class="yes-area">
+
+            <button id="yesBtn">
+
+                YES ❤️
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- NO BUTTON -->
+    <!-- ========================= -->
+
+    <button id="noBtn">
+
+        NO 😢
+
+    </button>
+
+
+
+    <!-- ========================= -->
+    <!-- SUCCESS SCREEN -->
+    <!-- ========================= -->
+
+    <div
+        class="container hidden"
+        id="success"
+    >
+
+
+        <div class="flowers">
+
+            🌹 🌷 🌸 🌺 🌻
+
+        </div>
+
+
+        <h1>
+
+            YAAAAAY! ❤️🎉
+
+        </h1>
+
+
+        <p class="love-message">
+
+            Congratulations! 🥰
+
+        </p>
+
+
+        <p>
+
+            You just made me the happiest
+            person in the world. ❤️
+
+        </p>
+
+
+        <p>
+
+            Thank you for choosing me.
+            I truly appreciate you, your smile,
+            your kindness, your personality,
+            and all the little things that make
+            you special.
+
+        </p>
+
+
+        <p>
+
+            I hope we create beautiful memories,
+            laugh together, support each other,
+            and enjoy this journey together. 💕
+
+        </p>
+
+
+        <div class="flowers">
+
+            💐 🌹 🌸 💖 🌷
+
+        </div>
+
+
+        <p class="small">
+
+            From someone who thinks
+            you're absolutely amazing. ❤️
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script>
+
+
+        /* GET HTML ELEMENTS */
+
+        const yesBtn =
+            document.getElementById("yesBtn");
+
+        const noBtn =
+            document.getElementById("noBtn");
+
+        const question =
+            document.getElementById("question");
+
+        const success =
+            document.getElementById("success");
+
+
+
+        /* NO BUTTON MESSAGES */
+
+        const noMessages = [
+
+            "NO 😢",
+
+            "Are you sure? 😏",
+
+            "Really? 🥺",
+
+            "Catch me! 😂",
+
+            "Too slow! 🏃‍♂️",
+
+            "Nope! 😜",
+
+            "You missed me! 😂",
+
+            "Almost! 😭",
+
+            "Try again! 😏",
+
+            "I'm faster! 🏃‍♀️💨",
+
+            "You can't catch me! 😂",
+
+            "Seriously?! 😭",
+
+            "Just say YES! ❤️"
+
+        ];
+
+
+
+        /* COUNTER */
+
+        let attempts = 0;
+
+
+
+        /* ========================= */
+        /* YES BUTTON */
+        /* ========================= */
+
+        yesBtn.addEventListener(
+            "click",
+            function() {
+
+
+                /* Hide question */
+
+                question.classList.add(
+                    "hidden"
+                );
+
+
+                /* Hide NO button */
+
+                noBtn.classList.add(
+                    "hidden"
+                );
+
+
+                /* Show success */
+
+                success.classList.remove(
+                    "hidden"
+                );
+
+
+                /* Change background */
+
+                document.body.style.background =
+                    "linear-gradient(135deg, #ff758c, #ff7eb3)";
+
+
+                /* Start celebration */
+
+                createFlowers();
+
+                createConfetti();
+
+            }
+        );
+
+
+
+        /* ========================= */
+        /* MOVE NO BUTTON */
+        /* ========================= */
+
+        function moveNoButton() {
+
+
+            /* Increase attempts */
+
+            attempts++;
+
+
+            /* Change button message */
+
+            let messageIndex =
+                Math.min(
+                    attempts,
+                    noMessages.length - 1
+                );
+
+
+            noBtn.textContent =
+                noMessages[messageIndex];
+
+
+
+            /* Get button dimensions */
+
+            const buttonWidth =
+                noBtn.offsetWidth;
+
+            const buttonHeight =
+                noBtn.offsetHeight;
+
+
+
+            /*
+            Keep the button inside
+            the browser window.
+            */
+
+            const maxX =
+                window.innerWidth -
+                buttonWidth -
+                20;
+
+            const maxY =
+                window.innerHeight -
+                buttonHeight -
+                20;
+
+
+
+            /* Random position */
+
+            const randomX =
+                Math.random() * maxX;
+
+            const randomY =
+                Math.random() * maxY;
+
+
+
+            /* Move button */
+
+            noBtn.style.left =
+                randomX + "px";
+
+            noBtn.style.top =
+                randomY + "px";
+
+
+
+            /*
+            Make it slightly smaller
+            as she keeps chasing it.
+            */
+
+            if (attempts > 5) {
+
+                noBtn.style.transform =
+                    "scale(0.95)";
+
+            }
+
+            if (attempts > 10) {
+
+                noBtn.style.transform =
+                    "scale(0.9)";
+
+            }
+
+        }
+
+
+
+        /* ========================= */
+        /* MOUSE DETECTION */
+        /* ========================= */
+
+        document.addEventListener(
+            "mousemove",
+            function(event) {
+
+
+                /* Get NO button position */
+
+                const rect =
+                    noBtn.getBoundingClientRect();
+
+
+                /* Find center */
+
+                const centerX =
+                    rect.left +
+                    rect.width / 2;
+
+                const centerY =
+                    rect.top +
+                    rect.height / 2;
+
+
+                /* Calculate distance */
+
+                const distanceX =
+                    event.clientX -
+                    centerX;
+
+                const distanceY =
+                    event.clientY -
+                    centerY;
+
+
+                const distance =
+                    Math.sqrt(
+                        distanceX * distanceX +
+                        distanceY * distanceY
+                    );
+
+
+
+                /*
+                If cursor gets within
+                110 pixels, RUN!
+                */
+
+                if (distance < 110) {
+
+                    moveNoButton();
+
+                }
+
+            }
+        );
+
+
+
+        /* ========================= */
+        /* PHONE SUPPORT */
+        /* ========================= */
+
+        noBtn.addEventListener(
+            "touchstart",
+            function(event) {
+
+                event.preventDefault();
+
+                moveNoButton();
+
+            }
+        );
+
+
+
+        /* ========================= */
+        /* CREATE FALLING FLOWERS */
+        /* ========================= */
+
+        function createFlowers() {
+
+
+            const flowers = [
+
+                "🌹",
+
+                "🌸",
+
+                "🌺",
+
+                "🌷",
+
+                "🌻",
+
+                "💐",
+
+                "❤️",
+
+                "💕"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 50;
+                i++
+            ) {
+
+
+                const flower =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                flower.classList.add(
+                    "falling"
+                );
+
+
+                flower.textContent =
+                    flowers[
+                        Math.floor(
+                            Math.random() *
+                            flowers.length
+                        )
+                    ];
+
+
+                flower.style.left =
+                    Math.random() *
+                    100 +
+                    "vw";
+
+
+                flower.style.animationDuration =
+                    3 +
+                    Math.random() * 4 +
+                    "s";
+
+
+                flower.style.fontSize =
+                    20 +
+                    Math.random() * 30 +
+                    "px";
+
+
+                document.body.appendChild(
+                    flower
+                );
+
+
+                /*
+                Remove after animation
+                */
+
+                setTimeout(
+                    function() {
+
+                        flower.remove();
+
+                    },
+                    8000
+                );
+
+            }
+
+        }
+
+
+
+        /* ========================= */
+        /* CREATE CONFETTI */
+        /* ========================= */
+
+        function createConfetti() {
+
+
+            for (
+                let i = 0;
+                i < 100;
+                i++
+            ) {
+
+
+                const piece =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                piece.classList.add(
+                    "confetti"
+                );
+
+
+                /*
+                Give each piece
+                a random color.
+                */
+
+                piece.style.backgroundColor =
+                    getRandomColor();
+
+
+                /*
+                Random horizontal position.
+                */
+
+                piece.style.left =
+                    Math.random() *
+                    100 +
+                    "vw";
+
+
+                /*
+                Random falling speed.
+                */
+
+                piece.style.animationDuration =
+                    2 +
+                    Math.random() * 4 +
+                    "s";
+
+
+                /*
+                Random size.
+                */
+
+                piece.style.width =
+                    5 +
+                    Math.random() * 8 +
+                    "px";
+
+
+                piece.style.height =
+                    10 +
+                    Math.random() * 15 +
+                    "px";
+
+
+                document.body.appendChild(
+                    piece
+                );
+
+
+                /*
+                Remove after animation.
+                */
+
+                setTimeout(
+                    function() {
+
+                        piece.remove();
+
+                    },
+                    7000
+                );
+
+            }
+
+        }
+
+
+
+        /* ========================= */
+        /* RANDOM CONFETTI COLOR */
+        /* ========================= */
+
+        function getRandomColor() {
+
+
+            const colors = [
+
+                "#ff0000",
+
+                "#ff69b4",
+
+                "#ffd700",
+
+                "#00bfff",
+
+                "#7fff00",
+
+                "#ff7f50",
+
+                "#9400d3"
+
+            ];
+
+
+            return colors[
+                Math.floor(
+                    Math.random() *
+                    colors.length
+                )
+            ];
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
